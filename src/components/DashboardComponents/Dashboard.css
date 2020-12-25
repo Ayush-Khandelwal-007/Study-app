@@ -1,0 +1,60 @@
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 2vw;
+}
+
+.AddSyllabus {
+  background-color: #f3f6f7;
+  color: rgb(107, 106, 106);
+  display: flex;
+  max-width: 100px;
+  align-items: flex-start;
+  padding: 2vh 3vw;
+  margin: 5vh 0px;
+  border-radius: 10px;
+}
+.Subjects {
+  background-color: #f3f6f7;
+  border-radius: 10px;
+}
+.SubjectList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 20px;
+  margin: 0.2vh 0px;
+  color: rgb(107, 106, 106);
+  padding-right: 3vw;
+  list-style-type: none;
+}
+
+.Selections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.Selections h1 {
+  font-size: 3vh;
+  color: rgb(107, 106, 106);
+}
+
+.Text {
+  color: rgb(107, 106, 106);
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+#ActiveSyllabus {
+  font-size: 2vmin;
+  color: whitesmoke;
+  background-color: #5c15b8;
+  padding: 2vh 3vw;
+  margin: 0;
+  border-radius: 10px;
+}
