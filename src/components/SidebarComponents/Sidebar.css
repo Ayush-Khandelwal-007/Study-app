@@ -38,6 +38,7 @@
 
 .NavList li {
   font-size: 2vmin;
+  width: inherit;
   margin: 0.2vw 0px;
   color: #5c15b8;
   padding: 2vh 3vw;
@@ -58,8 +59,6 @@
 }
 
 #Active {
-  font-size: 2vmin;
-  margin: 2vh 0px;
   color: whitesmoke;
   background-color: #5c15b8;
 }

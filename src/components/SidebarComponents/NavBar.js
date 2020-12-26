@@ -20,7 +20,7 @@ function NavBar() {
                     <li><GiPapers /> Backlog Remover</li>
                     <li><FcPositiveDynamic /> Rank Up</li>
                     <li><SpeedIcon /> Speed Up</li>
-                    <li><GiBullseye /> Accuracy Up</li>
+                    <li id='Active'><GiBullseye /> Accuracy Up</li>
                     <li><AutorenewIcon /> Revision</li>
                     <li><RiFilePaperFill /> Test Creator</li>
                     <li><MdAssignment /> Assignment Creator</li>
