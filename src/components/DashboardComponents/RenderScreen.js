@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ResizableBox from './ResizableBox'
 import { Chart } from 'react-charts'
+// const rp = require('request-promise');
 
 function RenderScreen() {
   const [data1, setData1] = useState([])
@@ -15,14 +16,38 @@ function RenderScreen() {
         for (var i in response.data.bpi) {
           var z = i.split("-");
           var newDate = new Date(z[0], z[1] - 1, z[2]);
-          console.log(newDate.getTime());
+          // console.log(newDate.getTime());
           result.push({ primary: newDate, secondary: response.data.bpi[i] });
-          result1.push({ primary: newDate, secondary: response.data.bpi[i]+200 });
+          result1.push({ primary: newDate, secondary: response.data.bpi[i] + 200 });
         }
-        setData1([{ label: 'BitCoin', data: result },{ label: 'BitCoin+100', data: result1 }]);
+        setData1([{ label: 'BitCoin', data: result }, { label: 'BitCoin+100', data: result1 }]);
       })
 
   }, [])
+
+  // useEffect(() => {
+  //   const requestOptions = {
+  //     method: 'GET',
+  //     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+  //     qs: {
+  //       'start': '1',
+  //       'limit': '5000',
+  //       'convert': 'USD'
+  //     },
+  //     headers: {
+  //       'X-CMC_PRO_API_KEY': '93016d6e-617c-43be-88f2-092fec07501d'
+  //     },
+  //     json: true,
+  //     gzip: true
+  //   };
+
+  //   rp(requestOptions).then(response => {
+  //     console.log('API call response:', response);
+  //   }).catch((err) => {
+  //     console.log('API call error:', err.message);
+  //   });
+
+  // }, [])
 
   const series = React.useMemo(
     () => ({
@@ -48,9 +73,15 @@ function RenderScreen() {
   return (
     <div className="RenderScreen">
       <h1>Real-Time Bitcoin Graph</h1>
-      <ResizableBox>
+      <div
+        className='Chart_box'
+        style={{
+          height: '40vh',
+          width: '100%'
+        }}
+      >
         <Chart data={data1} series={series} axes={axes} tooltip />
-      </ResizableBox>
+      </div>
     </div>
   )
 }

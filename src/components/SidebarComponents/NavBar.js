@@ -13,7 +13,7 @@ import FunctionsIcon from '@material-ui/icons/Functions';
 function NavBar() {
     return (
         <div className='NavBar'>
-            <div className='ToolHeading'><span className='ToolLogo'><FaPencilRuler size='1.3em' /></span>Tools</div>
+            <div className='ToolHeading'><span className='ToolLogo'><FaPencilRuler /></span>Tools</div>
             <div className='ToolList'>
                 <ul className="NavList">
                     <li><DashboardIcon /> Dashboard</li>

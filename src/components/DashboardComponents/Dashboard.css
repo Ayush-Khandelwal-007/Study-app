@@ -1,7 +1,7 @@
 .Dashboard {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70vw;
   padding-right: 2vw;
 }
 
@@ -57,4 +57,22 @@
   padding: 2vh 3vw;
   margin: 0;
   border-radius: 10px;
+}
+
+.RenderScreen{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2vw;
+  text-align: left
+}
+
+.RenderScreen h1{
+  font-size:calc(7px + 1.2vw) ;
+}
+
+@media only screen and (max-width:600px){
+  .Chart_box{
+    transform: scale(0.8);
+  }
 }
