@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import ResizableBox from './ResizableBox'
 import { Chart } from 'react-charts'
 // const rp = require('request-promise');
 
@@ -77,7 +76,8 @@ function RenderScreen() {
         className='Chart_box'
         style={{
           height: '40vh',
-          width: '100%'
+          width: '95%',
+          padding:'0vw 0vw 1vw 1vw'
         }}
       >
         <Chart data={data1} series={series} axes={axes} tooltip />
