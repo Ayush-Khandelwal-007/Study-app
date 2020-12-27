@@ -27,12 +27,19 @@ function RenderScreen() {
         console.log(response);
         var result1 = [];
         // response.data.rates.length
-        for (var i = 0; i < 1930; i++) {
+        for (var i = 0; i < 1000; i++) {
 
-          var date = response.data.rates[i].time
-          var newDate = new Date(date);
+          // if(i%100===0)console.log(i)
+          var date = response?.data?.rates[i].time
 
-          result1.push({ primary: newDate, secondary: response.data.rates[i].rate });
+          try {
+            var newDate = new Date(date);
+            result1.push({ primary: newDate, secondary: response?.data?.rates[i].rate });
+          }
+          catch (err) {
+            console.log(err);
+          }
+
           // console.log(result1);
 
         }
@@ -41,8 +48,15 @@ function RenderScreen() {
           // to get a value that is either negative, positive, or zero.
           return new Date(b.primary) - new Date(a.primary);
         });
-        setData1([{ label: 'BitCoin', data: result1 }]);
-        console.log(result1);
+
+        try {
+          setData1([{ label: 'BitCoin', data: result1 }]);
+          console.log(result1);
+        }
+        catch (err) {
+          console.log(err);
+        }
+
       })
       .catch(function (error) {
         console.log(error);
