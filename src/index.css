@@ -22,11 +22,7 @@ code {
     monospace;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-}
-
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 1vw;
   background-color: rgb(207, 207, 207);
-}
+} 

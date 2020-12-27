@@ -1,7 +1,7 @@
 .Dashboard {
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  width: 80vw;
   padding-right: 2vw;
 }
 
@@ -9,22 +9,24 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content:flex-start;
   padding-left: 2vw;
   text-align: left
 }
 
 .Chart_box{
-  background-color: #fffdf5;
+  background-color: #FFFDF7;
   padding: 1vw 0px;
   border-radius: 7px;
 }
 
 .RenderScreen h1{
   font-size:calc(7px + 1.2vw) ;
+  margin-top: 0px;
 }
 
 @media only screen and (max-width:600px){
   .Chart_box{
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 }

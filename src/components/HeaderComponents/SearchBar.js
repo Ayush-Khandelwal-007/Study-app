@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     searchIcon: {
-        padding: '0px 2vw',
+        padding: '0px 1vw',
         height: '100%',
         position: 'absolute',
         pointerEvents: 'none',

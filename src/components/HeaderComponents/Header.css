@@ -77,6 +77,9 @@
     height: 0.4em !important;
     width: 0.4em !important;
   }
+  .MuiButton-root{
+    min-width: 30px !important;
+  }
   .makeStyles-search-13{
     width: 10vw !important;
   }
@@ -90,5 +93,8 @@
   }
   .ProfileMenu .MuiButton-root{
     min-width: 0px !important;
+  }
+  .PurpleText{
+    padding: 1vh 0px;
   }
 }
