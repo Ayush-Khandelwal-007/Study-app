@@ -3484,6 +3484,11 @@ blakejs@^1.1.0:
   resolved "https://registry.yarnpkg.com/blakejs/-/blakejs-1.1.0.tgz#69df92ef953aa88ca51a32df6ab1c54a155fc7a5"
   integrity sha1-ad+S75U6qIylGjLfarHFShVfx6U=
 
+blocksdk@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/blocksdk/-/blocksdk-1.3.0.tgz#3aa8aeac52f434871764ec986213b8fd7014561b"
+  integrity sha512-KwTVGcdm2wBqqsMBmxyma+6d0T0rfTDThae1+sdfW9dYyEVOZ5+liV2wYexa996cU+bS+SEAX9P7J6IOgTmmjQ==
+
 bluebird@^3.5.0, bluebird@^3.5.5:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"

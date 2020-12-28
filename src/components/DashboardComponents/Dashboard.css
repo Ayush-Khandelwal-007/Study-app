@@ -25,8 +25,43 @@
   margin-top: 0px;
 }
 
+.Graph_header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upper{
+  z-index: 2 !important;
+}
+
+.DropDownButton {
+  display: flex;
+  align-items: center;
+  height: max-content;
+  justify-content: center;
+  padding: 0vw 1vw;
+  border-radius: 5px;
+}
+
+.DropDownButton span {
+  font-size: calc(4px + 0.8vw);
+  display: flex;
+  color: white;
+}
+
 @media only screen and (max-width:600px){
   .Chart_box{
     transform: scale(0.9);
+  }
+  .RenderScreen .MuiButton-text{
+    padding: 3px 3px;
+  }
+  .RenderScreen h1{
+    font-size: calc(6px + 0.8vw);
+  }
+  .DropDownButton span {
+    font-size: calc(2px + 0.7vw);
   }
 }
