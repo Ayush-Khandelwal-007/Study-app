@@ -22,7 +22,8 @@ function RenderScreen() {
           setData1([{ label: 'BitCoin', data: result }, { label: 'Random Graph', data: result1 }]);
         })
     }
-    var timer=setInterval(callData, 60000);
+    callData();
+    var timer=setInterval(callData, 10000);
     return () => {
       clearInterval(timer);
     }
