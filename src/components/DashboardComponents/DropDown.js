@@ -10,6 +10,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 function DropDown({ displayText, options, color, set }) {
 
+    const [display, setDisplay] = React.useState(displayText)
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
 
@@ -56,7 +57,7 @@ function DropDown({ displayText, options, color, set }) {
                 onClick={handleToggle}
             >
 
-                <span  >{displayText}<ArrowDropDownIcon /></span>
+                <span  >{display}<ArrowDropDownIcon /></span>
             </Button>
             <Popper className='upper' open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                 {({ TransitionProps, placement }) => (
@@ -72,6 +73,7 @@ function DropDown({ displayText, options, color, set }) {
                                             return (<MenuItem onClick= {(e)=>{
                                                 set(index+1);
                                                 handleClose(e);
+                                                setDisplay(options[index]);
                                             }} key={index} >{option}</MenuItem>)
                                         })
                                     }

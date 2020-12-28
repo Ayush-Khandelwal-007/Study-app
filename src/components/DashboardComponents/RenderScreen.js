@@ -11,7 +11,7 @@ function RenderScreen() {
   const [graph2, setGraph2] = useState(2)
   const [data, setData] = useState(null)
 
-  const dropdownOptions = ['Id1', 'Id2', 'Id3']
+  const dropdownOptions = ['Bitcoin', 'Ethereum', 'EOS']
 
   useEffect(() => {
     const fetchData = () => {
@@ -33,7 +33,7 @@ function RenderScreen() {
           result1.push({ primary: newDate, secondary: parseInt(data[i].price) });
         }
         // console.log(result1);
-        setData1({ label: 'Id1', data: result1 });
+        setData1({ label: 'Bitcoin', data: result1 });
 
 
       }).catch(function (error) {
@@ -66,7 +66,7 @@ function RenderScreen() {
           result2.push({ primary: newDate, secondary: parseInt(data[i].price) });
         }
         // console.log(result2);
-        setData2({ label: 'Id2', data: result2 });
+        setData2({ label: 'IEthereumd2', data: result2 });
 
 
       }).catch(function (error) {
@@ -99,7 +99,7 @@ function RenderScreen() {
           result3.push({ primary: newDate, secondary: parseInt(data[i].price) });
         }
         // console.log(result3);
-        setData3({ label: 'Id3', data: result3 });
+        setData3({ label: 'EOS', data: result3 });
 
 
       }).catch(function (error) {
@@ -200,8 +200,8 @@ function RenderScreen() {
     <div className="RenderScreen">
       <div className="Graph_header">
         <h1 className="PurpleText">Real-Time Bitcoin Graph</h1>
-        <DropDown options={dropdownOptions} color='#C30F70' displayText='Commodity1' set={setGraph1} />
-        <DropDown options={dropdownOptions} color='#5843BE' displayText='Commodity2' set={setGraph2} />
+        <DropDown options={dropdownOptions} color='rgb(126,181,243)' displayText='Commodity1' set={setGraph1} />
+        <DropDown options={dropdownOptions} color='rgb(201,104,127)' displayText='Commodity2' set={setGraph2} />
       </div>
       <div
         className='Chart_box'
