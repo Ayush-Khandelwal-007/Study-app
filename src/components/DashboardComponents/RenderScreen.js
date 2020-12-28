@@ -5,23 +5,30 @@ import { Chart } from 'react-charts'
 function RenderScreen() {
   const [data1, setData1] = useState([])
   useEffect(() => {
-    axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
-      .then(response => {
-        // console.log(response.data.bpi);
-        var result = [];
-        var result1=[];
+    const callData = () => {
+      axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
+        .then(response => {
+          console.log(response.data.bpi);
+          var result = [];
+          var result1 = [];
 
-        for (var i in response.data.bpi) {
-          var z = i.split("-");
-          var newDate = new Date(z[0], z[1] - 1, z[2]);
-          // console.log(newDate.getTime());
-          result.push({ primary: newDate, secondary: response.data.bpi[i] });
-          result1.push({ primary: newDate, secondary: response.data.bpi[i]+(Math.random()* 1600)-800});
-        }
-        setData1([{ label: 'BitCoin', data: result },{ label: 'Random Graph', data: result1 }]);
-      })
-
+          for (var i in response.data.bpi) {
+            var z = i.split("-");
+            var newDate = new Date(z[0], z[1] - 1, z[2]);
+            // console.log(newDate.getTime());
+            result.push({ primary: newDate, secondary: response.data.bpi[i] });
+            result1.push({ primary: newDate, secondary: response.data.bpi[i] + (Math.random() * 600) - 300 });
+          }
+          setData1([{ label: 'BitCoin', data: result }, { label: 'Random Graph', data: result1 }]);
+        })
+    }
+    var timer=setInterval(callData, 60000);
+    return () => {
+      clearInterval(timer);
+    }
   }, [])
+
+
 
   // useEffect(() => {
   //   axios.get('https://rest.coinapi.io/v1/exchangerate/BTC?apikey=E952333A-CA2F-46B2-8E23-DB5BE021C4BD')
