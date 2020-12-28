@@ -11,28 +11,31 @@ function RenderScreen() {
   const [graph2, setGraph2] = useState(2)
   const [data, setData] = useState(null)
 
-  const dropdownOptions = ['Bitcoin', 'Ethereum', 'EOS']
+  const dropdownOptions = ['Bitcoin', 'Ethereum', 'Litecoin']
 
   useEffect(() => {
     const fetchData = () => {
-      const options = {
-        method: 'GET',
-        url: 'https://coinranking1.p.rapidapi.com/coin/1/history/7d',
-        headers: {
-          'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
-          'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
-        }
-      };
+      //   const options = {
+      //     method: 'GET',
+      //     url: 'https://coinranking1.p.rapidapi.com/coin/1/history/7d',
+      //     headers: {
+      //       'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
+      //       'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
+      //     }
+      //   };
 
-      axios.request(options).then(function (response) {
+      axios.get('https://min-api.cryptocompare.com/data/blockchain/histo/day?fsym=BTC&api_key=84d18a9b3e88de33b8e0bae9839f3920628a6bedb083aa88595c3d17374eae29&limit=2000').then(function (response) {
         // console.log(response);
-        const data = response.data.data.history;
+        const data = response.data.Data.Data;
         var result1 = [];
         for (var i in data) {
-          var newDate = new Date(data[i].timestamp);
-          result1.push({ primary: newDate, secondary: parseInt(data[i].price) });
+          var newDate = new Date(data[i].time);
+          result1.push({ primary: newDate, secondary: parseInt(data[i].average_transaction_value) });
         }
         // console.log(result1);
+        result1.sort((a, b) => {
+          return a.primary - b.primary
+        });
         setData1({ label: 'Bitcoin', data: result1 });
 
 
@@ -48,25 +51,28 @@ function RenderScreen() {
   }, [])
   useEffect(() => {
     const fetchData = () => {
-      const options = {
-        method: 'GET',
-        url: 'https://coinranking1.p.rapidapi.com/coin/2/history/7d',
-        headers: {
-          'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
-          'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
-        }
-      };
+      // const options = {
+      //   method: 'GET',
+      //   url: 'https://coinranking1.p.rapidapi.com/coin/2/history/7d',
+      //   headers: {
+      //     'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
+      //     'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
+      //   }
+      // };
 
-      axios.request(options).then(function (response) {
+      axios.get('https://min-api.cryptocompare.com/data/blockchain/histo/day?fsym=ETH&api_key=84d18a9b3e88de33b8e0bae9839f3920628a6bedb083aa88595c3d17374eae29&limit=2000').then(function (response) {
         // console.log(response);
-        const data = response.data.data.history;
+        const data = response.data.Data.Data;
         var result2 = [];
         for (var i in data) {
-          var newDate = new Date(data[i].timestamp);
-          result2.push({ primary: newDate, secondary: parseInt(data[i].price) });
+          var newDate = new Date(data[i].time);
+          result2.push({ primary: newDate, secondary: parseInt(data[i].average_transaction_value) });
         }
         // console.log(result2);
-        setData2({ label: 'IEthereumd2', data: result2 });
+        result2.sort((a, b) => {
+          return a.primary - b.primary
+        });
+        setData2({ label: 'Ethereumd', data: result2 });
 
 
       }).catch(function (error) {
@@ -81,25 +87,28 @@ function RenderScreen() {
   }, [])
   useEffect(() => {
     const fetchData = () => {
-      const options = {
-        method: 'GET',
-        url: 'https://coinranking1.p.rapidapi.com/coin/5/history/7d',
-        headers: {
-          'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
-          'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
-        }
-      };
+      //   const options = {
+      //     method: 'GET',
+      //     url: 'https://coinranking1.p.rapidapi.com/coin/5/history/7d',
+      //     headers: {
+      //       'x-rapidapi-key': 'b3bdb530acmsha777171e97dd90ep199712jsn1c204b6d3108',
+      //       'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
+      //     }
+      // };
 
-      axios.request(options).then(function (response) {
+      axios.get('https://min-api.cryptocompare.com/data/blockchain/histo/day?fsym=LTC&api_key=84d18a9b3e88de33b8e0bae9839f3920628a6bedb083aa88595c3d17374eae29&limit=2000').then(function (response) {
         // console.log(response);
-        const data = response.data.data.history;
+        const data = response.data.Data.Data;
         var result3 = [];
         for (var i in data) {
-          var newDate = new Date(data[i].timestamp);
-          result3.push({ primary: newDate, secondary: parseInt(data[i].price) });
+          var newDate = new Date(data[i].time);
+          result3.push({ primary: newDate, secondary: parseInt(data[i].average_transaction_value) });
         }
+        result3.sort((a, b) => {
+          return a.primary - b.primary
+        });
         // console.log(result3);
-        setData3({ label: 'EOS', data: result3 });
+        setData3({ label: 'LiteCoin', data: result3 });
 
 
       }).catch(function (error) {
@@ -117,7 +126,7 @@ function RenderScreen() {
     if (graph1 === 1) {
       switch (graph2) {
         case 1:
-          if (data1 ) setData([data1, data1]);
+          if (data1) setData([data1, data1]);
           break;
         case 2:
           if (data1 && data2) setData([data1, data2]);
@@ -132,14 +141,14 @@ function RenderScreen() {
           break;
       }
     }
-    else if (graph1===2){
+    else if (graph1 === 2) {
 
       switch (graph2) {
         case 1:
           if (data2 && data1) setData([data2, data1]);
           break;
         case 2:
-          if (data2 ) setData([data2, data2]);
+          if (data2) setData([data2, data2]);
           break;
         case 3:
           if (data2 && data3) setData([data2, data3]);
@@ -151,7 +160,7 @@ function RenderScreen() {
           break;
       }
     }
-    else if (graph1===3){
+    else if (graph1 === 3) {
       switch (graph2) {
         case 1:
           if (data3 && data1) setData([data3, data1]);
@@ -170,7 +179,7 @@ function RenderScreen() {
       }
     }
 
-    
+
     else { setData(null) }
     // eslint-disable-next-line
   }, [data1, data2, data3, graph1, graph2])
